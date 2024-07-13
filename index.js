@@ -23,7 +23,7 @@ inquirer
             type: 'list',
             message: 'What would you like to do?',
             name: 'nav',
-            choices: ['Add Employee', 'Update Employee Role', 'View All Roles', 'Add Role', 'View All Departments', 'Add Department', 'Quit']
+            choices: ['View All Employees', 'View All Employees By Department', 'View All Employees By Manager', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'Update Employee Manager', 'Quit']
         }
     ])
     .then((responses) => {});
