@@ -1,6 +1,9 @@
 const express = require('express');
 const { Pool } = require('pg');
 
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 const pool = new Pool(
     {
       user: 'postgre',
@@ -8,7 +11,7 @@ const pool = new Pool(
       host: 'localhost',
       database: 'employees_db'
     },
-    console.log(`Connected to the movies_db database.`)
+    console.log(`Connected to the employees_db database.`)
   )
   
   pool.connect();
