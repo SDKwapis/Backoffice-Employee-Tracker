@@ -28,7 +28,27 @@ inquirer
         }
     ])
     .then((responses) => {
-        
+        const choice = `${responses.nav}`;
+        if(choice === 'View All Employees'){
+
+        } else if() {
+
+        } else if() {
+
+        } else if() {
+
+        } else if() {
+
+        } else if() {
+
+        } else if() {
+
+        } else (choice === 'Quit') {
+
+        }
     });
 };
 
+// LEFT OFF AT:
+// in the .then responses, run functions for every prompt (maybe an if else statement for everything?)
+// at the end of each function rerun the inquirer prompts to repopulate the choices over and over until they quit.

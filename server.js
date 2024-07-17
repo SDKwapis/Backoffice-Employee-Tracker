@@ -3,8 +3,6 @@ const { Pool } = require('pg');
 const app = express();
 const employeeManager = require('./index');
 
-employeeManager();
-
 // app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -19,3 +17,4 @@ const pool = new Pool(
   )
   
   pool.connect();
+  employeeManager();
