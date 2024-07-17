@@ -15,6 +15,7 @@ CREATE TABLE role (
     department_id INTEGER NOT NULL,
     FOREIGN KEY (department_id)
     REFERENCES department(id)
+    ON DELETE SET NULL
 );
 
 CREATE TABLE employee (
@@ -23,10 +24,12 @@ CREATE TABLE employee (
     last_name VARCHAR(30) NOT NULL,
     role_id INTEGER NOT NULL,
     FOREIGN KEY (role_id)
-    REFERENCES role(id),
-    manager_id INTEGER
+    REFERENCES role(id)
+    ON DELETE SET NULL,
+    manager_id INTEGER,
     FOREIGN KEY (manager_id)
     REFERENCES manager(id)
+    ON DELETE SET NULL
 );
 
 CREATE TABLE manager (
@@ -36,7 +39,9 @@ CREATE TABLE manager (
     department_id INTEGER NOT NULL,
     FOREIGN KEY (department_id)
     REFERENCES department(id)
-    role_id INTEGER NOT NULL.
+    ON DELETE SET NULL,
+    role_id INTEGER NOT NULL,
     FOREIGN KEY (role_id)
     REFERENCES role(id)
+    ON DELETE SET NULL
 );
