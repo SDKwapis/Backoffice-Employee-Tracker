@@ -22,3 +22,10 @@ CREATE TABLE employee (
     role_id INTEGER NOT NULL,
     manager_id INTEGER
 );
+
+CREATE TABLE manager (
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    department_id INTEGER
+);
