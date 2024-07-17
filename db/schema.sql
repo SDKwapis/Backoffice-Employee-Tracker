@@ -28,20 +28,6 @@ CREATE TABLE employee (
     ON DELETE SET NULL,
     manager_id INTEGER,
     FOREIGN KEY (manager_id)
-    REFERENCES manager(id)
-    ON DELETE SET NULL
-);
-
-CREATE TABLE manager (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
-    department_id INTEGER NOT NULL,
-    FOREIGN KEY (department_id)
-    REFERENCES department(id)
-    ON DELETE SET NULL,
-    role_id INTEGER NOT NULL,
-    FOREIGN KEY (role_id)
-    REFERENCES role(id)
+    REFERENCES employee(id)
     ON DELETE SET NULL
 );

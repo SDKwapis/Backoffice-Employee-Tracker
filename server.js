@@ -15,7 +15,7 @@ const pool = new Pool(
       host: 'localhost',
       database: 'employees_db'
     },
-    console.log(`Connected to the employees_db database.`)
+    console.log(`Connected to employees_db.`)
   )
   
   pool.connect();
