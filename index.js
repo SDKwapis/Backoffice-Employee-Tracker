@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 
+module.exports = () => {
 let asciiMessage = `
 ,--------------------------------------------------------.
 |  _____                 _                               |
@@ -26,4 +27,8 @@ inquirer
             choices: ['View All Employees', 'View All Employees By Department', 'View All Employees By Manager', 'Add Employee', 'Remove Employee', 'Update Employee Role', 'Update Employee Manager', 'Quit']
         }
     ])
-    .then((responses) => {});
+    .then((responses) => {
+        
+    });
+};
+
