@@ -1,7 +1,20 @@
 const inquirer = require('inquirer');
+const { Pool } = require('pg');
+
+const pool = new Pool(
+    {
+      user: 'postgres',
+      password: 'Lmsk09771!!',
+      host: 'localhost',
+      database: 'employees_db'
+    },
+    console.log(`Connected to employees_db.`)
+  )
+  
+  pool.connect();
 
 module.exports = () => {
-let asciiMessage = `
+const asciiMessage = `
 ,--------------------------------------------------------.
 |  _____                 _                               |
 | | ____|_ __ ___  _ __ | | ___  _   _  ___  ___         | 
@@ -30,24 +43,28 @@ inquirer
     .then((responses) => {
         const choice = `${responses.nav}`;
         if(choice === 'View All Employees'){
+            pool.query('SELECT * FROM employee', function (err, {rows}) {
+                console.log(rows);
+                
+                
 
-        } else if() {
+        // } else if(choice === 'View All Employees By Department') {
 
-        } else if() {
+        // } else if(choice === 'View All Employees By Manager') {
 
-        } else if() {
+        // } else if(choice === 'Add Employee') {
 
-        } else if() {
+        // } else if(choice === 'Remove Employee') {
 
-        } else if() {
+        // } else if(choice === 'Update Employee Role') {
 
-        } else if() {
+        // } else if(choice === 'Update Employee Manager') {
 
-        } else (choice === 'Quit') {
+        // } else (choice === 'Quit') {
 
-        }
-    });
-};
+        })}
+    })};
+
 
 // LEFT OFF AT:
 // in the .then responses, run functions for every prompt (maybe an if else statement for everything?)
