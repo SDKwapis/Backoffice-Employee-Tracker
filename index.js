@@ -10,10 +10,8 @@ const pool = new Pool(
     },
     console.log(`Connected to employees_db.`)
   )
-  
   pool.connect();
 
-module.exports = () => {
 const asciiMessage = `
 ,--------------------------------------------------------.
 |  _____                 _                               |
@@ -31,6 +29,7 @@ const asciiMessage = `
 `;              
 console.log(asciiMessage);
 
+const promptUser = () => {
 inquirer
     .prompt([
         {
@@ -41,13 +40,17 @@ inquirer
         }
     ])
     .then((responses) => {
-        const choice = `${responses.nav}`;
-        if(choice === 'View All Employees'){
-            pool.query('SELECT * FROM employee', function (err, {rows}) {
-                console.log(rows);
-                
-                
-
+        const choice = responses.nav;
+        if (choice === 'View All Employees') {
+            pool.query('SELECT * FROM employee', function (err, result) {
+              if (err) {
+                console.error(err);
+              } else {
+                console.table(result.rows);
+              }
+              promptUser();
+            });
+          } 
         // } else if(choice === 'View All Employees By Department') {
 
         // } else if(choice === 'View All Employees By Manager') {
@@ -60,12 +63,20 @@ inquirer
 
         // } else if(choice === 'Update Employee Manager') {
 
-        // } else (choice === 'Quit') {
-
-        })}
-    })};
-
-
-// LEFT OFF AT:
-// in the .then responses, run functions for every prompt (maybe an if else statement for everything?)
-// at the end of each function rerun the inquirer prompts to repopulate the choices over and over until they quit.
+        else if (choice === 'Quit') {
+            console.log('Goodbye!');
+            pool.end(); 
+            process.exit()
+          } 
+          else {
+            console.log(`Unhandled choice: ${choice}`);
+            promptUser();
+          }
+        });
+    };
+    
+    module.exports = {
+        asciiMessage,
+        promptUser
+      };
+      
