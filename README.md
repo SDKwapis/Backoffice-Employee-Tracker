@@ -19,6 +19,8 @@ To run the database open the terminal and run the command "node server.js". This
 
 # Usage
 Use the employee tracker to add new employees to the database, assign their managers/departments/roles, as well as update and delete employees.
+<img src="./images/tracker.png">
+https://drive.google.com/file/d/1uMhi7XRnALmZMU9ToLrqEsjKLBZQPUg8/view
 
 # Contributing
 This project was completed using strictly class materials and activities as well as postgreSQL documentation from here: 
