@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS employees_db;
+km,  employees_db;
 CREATE DATABASE employees_db;
 
 \c employees_db;
