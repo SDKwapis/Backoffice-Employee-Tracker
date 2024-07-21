@@ -1,3 +1,5 @@
+-- Seed data to build out the database for presentation purposes
+
 INSERT INTO department (name)
 VALUES  ('Sales'),
         ('Customer Service'),

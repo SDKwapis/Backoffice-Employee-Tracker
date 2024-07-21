@@ -1,13 +1,14 @@
-km,  employees_db;
+DROP DATABASE IF EXISTS employees_db;
 CREATE DATABASE employees_db;
 
 \c employees_db;
 
+-- Table definition for department
 CREATE TABLE department (
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL
 );
-
+-- Table definition for role
 CREATE TABLE role (
     id SERIAL PRIMARY KEY,
     title VARCHAR(30) UNIQUE NOT NULL,
@@ -17,7 +18,7 @@ CREATE TABLE role (
     REFERENCES department(id)
     ON DELETE SET NULL
 );
-
+-- Table definition for employee
 CREATE TABLE employee (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
